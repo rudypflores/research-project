@@ -10,135 +10,163 @@
          you will be paid regardless of what responses you choose.</h2>
     
     <form action="/action_page.php">
-        <div class="wrapper">
-        <b>Mechanical Turk ID</b>
-            <input type="text" value="mTurkID" name="mTurkID">
-        <br/><br/>
-        </div>
-        <div class="wrapper">
-        <b>Age:</b>
-        <div class="wrapper-radio">
-            <div class="wrapper-option"><input type="radio" value="18-24" name="Age"><label>18-24</label></div>
-            <div class="wrapper-option"><input type="radio" value="25-30" name="Age"><label>25-30</label></div>
-            <div class="wrapper-option"><input type="radio" value="31-40" name="Age"><label>31-40</label></div>
-            <div class="wrapper-option"><input type="radio" value="41-50" name="Age"><label>41-50</label></div>
-            <div class="wrapper-option"><input type="radio" value="51-60" name="Age"><label>51-60</label></div>
-            <div class="wrapper-option"><input type="radio" value="61+" name="Age"><label>61+</label></div>
-        </div>
-        <br/><br/>
-        </div>
-        <div class="wrapper">
-        <b>Gender</b>
-        <div class="wrapper-radio">
-            <div class="wrapper-option"><input type="radio" value="Male" name="Gender"><label>Male</label></div>
-            <div class="wrapper-option"><input type="radio" value="Female" name="Gender"><label>Female</label></div>
-            <div class="wrapper-option"><input type="radio" value="Other" name="Gender"><label>Other</label></div>
+
+        <!-- 
+            ##SAMPLE FOR NEW WRAPPER STYLE##
+
+            <div class="wrapper-row">
+                <div class="left">
+                        <p>left</p>
+                    </div>
+                    <div class="right">
+                        <p>right</p>
+                    </div>
+            </div> 
+        -->
+
+        <!-- Test for new layout -->
+        <div class="wrapper-row">
+            <b class="left">Mechanical Turk ID:</b>
+            <input type="text" value="mTurkID" name="mTurkID" class="right">
         </div>
         <br/><br/>
+        <div class="wrapper-row">
+            <b class="left">Age:</b>
+            <div class="right wrapper-radio">
+                <div class="wrapper-option"><input type="radio" value="18-24" name="Age"><label>18-24</label></div>
+                <div class="wrapper-option"><input type="radio" value="25-30" name="Age"><label>25-30</label></div>
+                <div class="wrapper-option"><input type="radio" value="31-40" name="Age"><label>31-40</label></div>
+                <div class="wrapper-option"><input type="radio" value="41-50" name="Age"><label>41-50</label></div>
+                <div class="wrapper-option"><input type="radio" value="51-60" name="Age"><label>51-60</label></div>
+                <div class="wrapper-option"><input type="radio" value="61+" name="Age"><label>61+</label></div>
+            </div>
         </div>
-        <div class="wrapper">
-        <b>Ethnicity:</b>
-        <select value="ethnicity">
-            <option value="None" name="Ethnicity">Select your ethnicity</option>
-            <option value="Hispanic" name="Ethnicity">Hispanic or Latino</option>
-            <option value="American" name="Ethnicity">American Indian or Alaska Native</option>
-            <option value="Asian" name="Ethnicity">Asian</option>
-            <option value="Black" name="Ethnicity">Black or African American</option>
-            <option value="White" name="Ethnicity">White</option>
-        </select>
         <br/><br/>
+        <div class="wrapper-row">
+            <b class="left">Gender:</b>
+            <div class="right wrapper-radio">
+                <div class="wrapper-option"><input type="radio" value="Male" name="Gender"><label>Male</label></div>
+                <div class="wrapper-option"><input type="radio" value="Female" name="Gender"><label>Female</label></div>
+                <div class="wrapper-option"><input type="radio" value="Other" name="Gender"><label>Other</label></div>
+            </div>
         </div>
-        <div class="wrapper">
-        <b>Please rate your level of English language proficiency.</b>
-        <div class="wrapper-radio">
+        <br/><br/>
+        <div class="wrapper-row">
+            <b class="left">Ethnicity:</b>
+            <div class="right">
+                <select value="ethnicity">
+                    <option value="None" name="Ethnicity">Select your ethnicity</option>
+                    <option value="Hispanic" name="Ethnicity">Hispanic or Latino</option>
+                    <option value="American" name="Ethnicity">American Indian or Alaska Native</option>
+                    <option value="Asian" name="Ethnicity">Asian</option>
+                    <option value="Black" name="Ethnicity">Black or African American</option>
+                    <option value="White" name="Ethnicity">White</option>
+                </select>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">Please rate your level of English language proficiency.</b>
+        <div class="right wrapper-radio">
             <div class="wrapper-option"><input type="radio" value="Very good" name="English proficiency"><label>Very good</label></div>
             <div class="wrapper-option"><input type="radio" value="Good" name="English proficiency"><label>Good</label></div>
             <div class="wrapper-option"><input type="radio" value="Fair" name="English proficiency"><label>Fair</label></div>
             <div class="wrapper-option"><input type="radio" value="Poor" name="English proficiency"><label>Poor</label></div>
             <div class="wrapper-option"><input type="radio" value="Very poor" name="English proficiency"><label>Very poor</label></div>
         </div>
-        <br/><br/>
         </div>
-        <div class="wrapper">
-        <b>Are you color blind?</b>
-        <div class="wrapper-radio">
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">Are you color blind?</b>
+        <div class="right wrapper-radio">
             <div class="wrapper-option"><input type="radio" value="Yes" name="Color blind"><label>Yes</label></div>
             <div class="wrapper-option"><input type="radio" value="No" name="Color blind"><label>No</label></div>
         </div>
-        <br/><br/>
         </div>
-        <div class="wrapper">
-        <b>Approximately how many hours did you spend playing games on your phone during the last 7 days?</b>
-        <select value="Hours of gaming">
-            <option value="1" name="Gaming hours">1</option>
-            <option value="2" name="Gaming hours">2</option>
-            <option value="3" name="Gaming hours">3</option>
-            <option value="4" name="Gaming hours">4</option>
-            <option value="5" name="Gaming hours">5</option>
-            <option value="6" name="Gaming hours">6</option>
-        </select>
         <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">Approximately how many hours did you spend playing games on your phone during the last 7 days?</b>
+        <div class="right">
+            <select value="Hours of gaming">
+                <option value="1" name="Gaming hours">1</option>
+                <option value="2" name="Gaming hours">2</option>
+                <option value="3" name="Gaming hours">3</option>
+                <option value="4" name="Gaming hours">4</option>
+                <option value="5" name="Gaming hours">5</option>
+                <option value="6" name="Gaming hours">6</option>
+            </select>
         </div>
-        <div class="wrapper">
-        <b>Approximately how many hours did you spend listening to music while doing work related
+        </div>
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">Approximately how many hours did you spend listening to music while doing work related
         tasks on your computer or mobile device during the last 7 days?</b>
-        <select value="Hours of music">
-            <option value="1" name="Music hours">1</option>
-            <option value="2" name="Music hours">2</option>
-            <option value="3" name="Music hours">3</option>
-            <option value="4" name="Music hours">4</option>
-            <option value="5" name="Music hours">5</option>
-            <option value="6" name="Music hours">6</option>
-        </select>
-        <br/><br/>
+        <div class="right">
+            <select value="Hours of music">
+                <option value="1" name="Music hours">1</option>
+                <option value="2" name="Music hours">2</option>
+                <option value="3" name="Music hours">3</option>
+                <option value="4" name="Music hours">4</option>
+                <option value="5" name="Music hours">5</option>
+                <option value="6" name="Music hours">6</option>
+            </select>
         </div>
-        <div class="wrapper">
-        <b>What kind of music do you prefer to listen to?</b>
-        <select value="Musical genres">
-                <option value="Classical" name="Musical genres">Classical</option>
-                <option value="Rock" name="Musical genres">Rock</option>
-                <option value="Pop" name="Musical genres">Pop</option>
-                <option value="Hip Hop" name="Musical genres">Hip Hop</option>
-                <option value="Jazz" name="Musical genres">Jazz</option>
-                <option value="Country" name="Musical genres">Country</option>
-                <option value="Electronic" name="Musical genres">Electronic</option>
-        </select>
-        <br/><br/>
         </div>
-        <div class="wrapper">
-        <b>Please state if you agree or disagree with the following questions:</b>
-        <b>Music helps improve my performance while doing work related tasks on my computer or mobile device.</b>
-        <div class="wrapper-radio">
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">What kind of music do you prefer to listen to?</b>
+        <div class="right">
+            <select value="Musical genres">
+                    <option value="Classical" name="Musical genres">Classical</option>
+                    <option value="Rock" name="Musical genres">Rock</option>
+                    <option value="Pop" name="Musical genres">Pop</option>
+                    <option value="Hip Hop" name="Musical genres">Hip Hop</option>
+                    <option value="Jazz" name="Musical genres">Jazz</option>
+                    <option value="Country" name="Musical genres">Country</option>
+                    <option value="Electronic" name="Musical genres">Electronic</option>
+            </select>
+        </div>
+        </div>
+        <br/><br/>
+        <div class="wrapper-row">
+            <b class="left">Please state if you agree or disagree with the following questions:</b>
+            <div class="right"></div>
+        </div>
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">Music helps improve my performance while doing work related tasks on my computer or mobile device.</b>
+        <div class="right wrapper-radio">
             <div class="wrapper-option"><input type="radio" value="Strongly agree" name="Does music help work tasks"><label>Strongly agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Agree" name="Does music help"><label>Agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="Does music help"><label>Neither agree nor disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Disagree" name="Does music help"><label>Disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="Does music help"><label>Strongly disagree</label></div>
         </div>
-        <br/><br/>
         </div>
-        <div class="wrapper">
-        <b>In general I consider background music to be helpful.</b>
-        <div class="wrapper-radio">
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">In general I consider background music to be helpful.</b>
+        <div class="right wrapper-radio">
             <div class="wrapper-option"><input type="radio" value="Strongly agree" name="Background music is helpful"><label>Strongly agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Agree" name="Background music is helpful"><label>Agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="Background music is helpful"><label>Neither agree nor disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Disagree" name="Background music is helpful"><label>Disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="Background music is helpful"><label>Strongly disagree</label></div>
         </div>
-        <br/><br/>
         </div>
-        <div class="wrapper">
-        <b>I like rock music</b>
-        <div class="wrapper-radio">
+        <br/><br/>
+        <div class="wrapper-row">
+        <b class="left">I like rock music</b>
+        <div class="right wrapper-radio">
             <div class="wrapper-option"><input type="radio" value="Strongly agree" name="I like rock"><label>Strongly agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Agree" name="I like rock"><label>Agree</label></div>
             <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="I like rock"><label>Neither agree nor disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Disagree" name="I like rock"><label>Disagree</label></div>
             <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="I like rock"><label>Strongly disagree</label></div>
-        </div><br/><br/>
-        <input type="submit">
         </div>
+        </div>
+        <br/><br/>
+        <div class="wrapper"><input type="submit"></div>
     </form>
 </body>
 <script type="text/javascript" src="./scripts/index.js"></script>

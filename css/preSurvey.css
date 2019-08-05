@@ -31,14 +31,17 @@ b {
     margin:0;
     padding: 0;
     border:0;
+    display:inline-block;
 }
 
 form {
-    width:80%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+    border: 0;
 }
 
 input[type=text] {
-    margin-top:20px;
     padding: 0.5rem 1rem;
     outline: none;
     border: 1px solid #cdcdcd;
@@ -78,7 +81,6 @@ input[type=submit] {
 select, option {
     outline: none;
     font-family:'Lato', sans-serif;
-    margin-top:25px;
     padding: 0.5rem 1rem; 
     border: 1px solid #cdcdcd;
     border-radius:3px;
@@ -91,6 +93,7 @@ select, option {
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+    display:inline-block;
 }
 
 select:focus {
@@ -126,6 +129,36 @@ option {
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin:25px;
+    margin:0;
+    border:0;
     padding:0;
+}
+
+.wrapper-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin:0;
+    padding:0;
+}
+
+.left {
+    width:40%;
+    color:#263238;
+    margin:0;
+    padding:0;
+    border:0;
+    text-align:right;
+    margin-right:15px;
+}
+
+.right {
+    width:40%;
+    color:#263238;
+    margin:0;
+    padding:0;
+    border:0;
+    text-align: left;
 }
