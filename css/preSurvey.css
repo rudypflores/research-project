@@ -20,7 +20,7 @@ body, html {
 #instructions {
     background-color: #263238;
     color: #EEEEEE;
-    margin:25px 15px;
+    margin:1.5rem 3rem 6rem 3rem;
     padding:1.5rem 3rem;
     border-radius: 3px;
     text-align: center;
@@ -132,6 +132,7 @@ option {
     margin:0;
     border:0;
     padding:0;
+    margin-right:25px;
 }
 
 .wrapper-row {
@@ -161,4 +162,11 @@ option {
     padding:0;
     border:0;
     text-align: left;
+}
+
+fieldset {
+    display: block;
+    margin:0;
+    padding: 0;
+    border: 0;
 }
