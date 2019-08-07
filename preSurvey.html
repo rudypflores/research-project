@@ -140,53 +140,47 @@
             </select>
         </div>
         </div>
-        <br/><br/><br/><br/>
+        <br/><br/>
         <!-- Instructions for next series of questions -->
-        <div class="wrapper-row">
-            <b class="left">Please state if you agree or disagree with the following questions:</b>
-            <div class="right"></div>
-        </div>
-        <br/><br/>
-        <!-- Question 10 -->
-        <div class="wrapper-row">
-        <b class="left">Music helps improve my performance while doing work related tasks on my computer or mobile device.</b>
-        <div class="right wrapper-radio">
-            <fieldset>
-                <div class="wrapper-option"><input type="radio" value="Strongly agree" name="Does music help" required><label>Strongly agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Agree" name="Does music help"><label>Agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="Does music help"><label>Neither agree nor disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Disagree" name="Does music help"><label>Disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="Does music help"><label>Strongly disagree</label></div>
-            </fieldset>
-        </div>
-        </div>
-        <br/><br/>
-        <!-- Question 11 -->
-        <div class="wrapper-row">
-        <b class="left">In general I consider background music to be helpful.</b>
-        <div class="right wrapper-radio">
-            <fieldset>
-                <div class="wrapper-option"><input type="radio" value="Strongly agree" name="Background music is helpful" required><label>Strongly agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Agree" name="Background music is helpful"><label>Agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="Background music is helpful"><label>Neither agree nor disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Disagree" name="Background music is helpful"><label>Disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="Background music is helpful"><label>Strongly disagree</label></div>
-            </fieldset>
-        </div>
-        </div>
-        <br/><br/>
-        <!-- Question 12 -->
-        <div class="wrapper-row">
-        <b class="left">I like rock music</b>
-        <div class="right wrapper-radio">
-            <fieldset>
-                <div class="wrapper-option"><input type="radio" value="Strongly agree" name="I like rock" required><label>Strongly agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Agree" name="I like rock"><label>Agree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Neither agree nor disagree" name="I like rock"><label>Neither agree nor disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Disagree" name="I like rock"><label>Disagree</label></div>
-                <div class="wrapper-option"><input type="radio" value="Strongly disagree" name="I like rock"><label>Strongly disagree</label></div>
-            </fieldset>
-        </div>
+        <!-- Table with radio buttons-->
+        <!-- first row -->
+        <div class="table">
+            <p class="table-header">Please state if you agree or disagree with the following questions:</p>
+            <div class="row">
+                <div class="cell-value"><b></b></div>
+                <div class="cell"><label>Strongly agree</label></div>
+                <div class="cell"><label>Agree</label></div>
+                <div class="cell"><label>Neither agree nor disagree</label></div>
+                <div class="cell"><label>Disagree</label></div>
+                <div class="cell"><label>Strongly disagree</label></div>
+            </div>
+            <!-- second row -->
+            <div class="row" style="background-color: #CFD8DC;">
+                <div class="cell-value"><b>I like rock music</b></div>
+                <div class="cell"><input type="radio" value="Strongly agree" name="I like rock" required></div>
+                <div class="cell"><input type="radio" value="Agree" name="I like rock"></div>
+                <div class="cell"><input type="radio" value="Neither agree nor disagree" name="I like rock"></div>
+                <div class="cell"><input type="radio" value="Disagree" name="I like rock"></div>
+                <div class="cell"><input type="radio" value="Strongly disagree" name="I like rock"></div>
+            </div>
+            <!-- third row -->
+            <div class="row">
+                <div class="cell-value"><b>In general I consider background music to be helpful.</b></div>
+                <div class="cell"><input type="radio" value="Strongly agree" name="Background music is helpful" required></div>
+                <div class="cell"><input type="radio" value="Agree" name="Background music is helpful"></div>
+                <div class="cell"><input type="radio" value="Neither agree nor disagree" name="Background music is helpful"></div>
+                <div class="cell"><input type="radio" value="Disagree" name="Background music is helpful"></div>
+                <div class="cell"><input type="radio" value="Strongly disagree" name="Background music is helpful"></div>
+            </div>
+            <!-- fourth row -->
+            <div class="row" style="background-color: #CFD8DC;">
+                <div class="cell-value"><b>Music helps improve my performance while doing work related tasks on my computer or mobile device.</b></div>
+                <div class="cell"><input type="radio" value="Strongly agree" name="Does music help" required></div>
+                <div class="cell"><input type="radio" value="Agree" name="Does music help"></div>
+                <div class="cell"><input type="radio" value="Neither agree nor disagree" name="Does music help"></div>
+                <div class="cell"><input type="radio" value="Disagree" name="Does music help"></div>
+                <div class="cell"><input type="radio" value="Strongly disagree" name="Does music help"></div>
+            </div>
         </div>
         <br/><br/>
         <!-- Submit button for form -->

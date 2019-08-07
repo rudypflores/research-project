@@ -20,7 +20,7 @@ body, html {
 #instructions {
     background-color: #263238;
     color: #EEEEEE;
-    margin:1.5rem 3rem 6rem 3rem;
+    margin:1rem 50px 3rem;
     padding:1.5rem 3rem;
     border-radius: 3px;
     text-align: center;
@@ -32,6 +32,10 @@ b {
     padding: 0;
     border:0;
     display:inline-block;
+}
+
+.row .cell b {
+    text-align: left;
 }
 
 form {
@@ -60,7 +64,10 @@ input[type=text]:hover, input[type=text]:focus {
 }
 
 input[type=radio] {
-    cursor:pointer;
+    border: 0px;
+    width: 100%;
+    height: 1.5em;
+    cursor: pointer;
 }
   
 
@@ -103,6 +110,7 @@ select:focus {
 select:hover { 
     background-color:#f0f0f0 !important; 
 }
+
 option {
     border-radius:25px; color:#263238; background-color:#ffffff; 
 }
@@ -113,36 +121,15 @@ option {
     align-items: center;
 }
 
-.wrapper-radio {
-    display: inline-flex;
-    flex-flow: row wrap;
-    align-items:center;
-    justify-content:flex-start;
-    margin:0px;
-    padding:0px;
-    font-weight: 350;
-}
-
-.wrapper-option {
-    display: inline-flex;
-    flex-flow:row nowrap;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin:0;
-    border:0;
-    padding:0;
-    margin-right:25px;
-}
-
 .wrapper-row {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     align-content: center;
     margin:0;
     padding:0;
+    margin-left:50px;
 }
 
 .left {
@@ -151,12 +138,12 @@ option {
     margin:0;
     padding:0;
     border:0;
-    text-align:right;
     margin-right:15px;
+    text-align: right;
 }
 
 .right {
-    width:40%;
+    width:50%;
     color:#263238;
     margin:0;
     padding:0;
@@ -169,4 +156,40 @@ fieldset {
     margin:0;
     padding: 0;
     border: 0;
+}
+
+.table {
+    display: flex;
+    margin:25px 50px;
+    justify-content: center;
+    flex-flow: column nowrap;
+    border-radius:3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+
+.table-header {
+    background-color: #263238;
+    color: #EEEEEE;
+    padding:1.5rem 3rem;
+    margin:0;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell {
+    width:14%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+.cell-value {
+    width:30%;
+    padding: 0.5rem 1rem;
+    text-align: left;
 }
