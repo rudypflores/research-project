@@ -54,12 +54,8 @@ const timer = () => {
         time--;
 
         // Stop timer if user has completed game
-        if(isCompleted()) {
-            clearInterval(clock);
-            for(let i = 0; i < cells; i++) {
-                console.log(cells[i].firstChild.removeEventListener('click', match))
-            }
-        }
+        if(isCompleted())
+            time = -1;
 
         // Stop timer if the user has run out of time
         if(time < 0) 
@@ -86,8 +82,8 @@ const checkForMatches = (img) => {
                 imgStack.push(img);
                 imgPrev = img.src;
                 imgId = img.id;
-                attempts++;
                 img.style.opacity = 1;
+                attempts++;
             }
         } else if(attempts === 2) {
             // Reset stack and values
@@ -106,39 +102,32 @@ const checkForMatches = (img) => {
             img.style.opacity = 1;
             attempts++;
         }
-        console.log(imgStack)
     }
 };
 
-// Helper method for checking occurences of a number in an array
-const countInArray = (array, what) => {
-    var count = 0;
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === what) {
-            count++;
-        }
-    }
+// Helper method for checking occurences of x in an array
+const countInArray = (arr, x) => {
+    let count = 0;
+    arr.forEach(num => num === x ? count++ : null);
     return count;
 }
 
-// Check for completion of task
+// Helper method for checking completion of memory game
 const isCompleted = () => {
     let tiles = [];
 
-    for(let i = 0; i < cells.length; i++) {
-        tiles.push(cells[i].firstChild.style.opacity);
+    for(let cell of cells) {
+        tiles.push(cell.firstChild.style.opacity);
     }
 
     if(tiles.includes("0")) {
         return false;
     }
 
-    // Create a continue button
+    // Create a continue button and insert to DOM
     let buttonNext = document.createElement('button');
     buttonNext.innerHTML = 'Continue';
-    buttonNext.onclick = () => {
-        location.href = 'index.html';
-    }
+    buttonNext.onclick = () => location.href = 'index.html';
     document.body.appendChild(buttonNext);
     return true;
 };
