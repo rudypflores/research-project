@@ -20,10 +20,11 @@ body, html {
 #instructions {
     background-color: #263238;
     color: #EEEEEE;
-    margin:1rem 50px 3rem;
+    margin:50px;
     padding:1.5rem 3rem;
     border-radius: 3px;
     text-align: center;
+    font-size: 1.2rem;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 }
 
@@ -31,6 +32,7 @@ b {
     margin:0;
     padding: 0;
     border:0;
+    font-size:1rem;
     display:inline-block;
 }
 
@@ -52,7 +54,7 @@ input[type=text] {
     border-radius:3px;
     border-color: rgba(0, 0, 0, .15);
     background-color: #ffffff;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Lato', sans-serif;
     font-weight: 350;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
@@ -73,7 +75,7 @@ input[type=radio] {
 
 input[type=submit] {
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
-    font-size: 16px;
+    font-size: 1rem;
     background-color: #263238;
     border:none;
     border-radius: 3px;
@@ -98,7 +100,7 @@ select, option {
     background-color: #ffffff;
     font-weight: 350;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
     display:inline-block;
 }
@@ -112,7 +114,9 @@ select:hover {
 }
 
 option {
-    border-radius:25px; color:#263238; background-color:#ffffff; 
+    border-radius:25px; 
+    color:#263238; 
+    background-color:#ffffff; 
 }
 
 .wrapper {
@@ -173,6 +177,7 @@ fieldset {
     padding:1.5rem 3rem;
     margin:0;
     text-align: center;
+    font-size:1.2rem;
 }
 
 .row {
