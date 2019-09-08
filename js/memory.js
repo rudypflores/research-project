@@ -1,11 +1,11 @@
 // Array that contains all possible images
 const fruits = [
-    './img/png/banana.png',
-    './img/png/grape.png',
-    './img/png/pear.png',
-    './img/png/pineapple.png',
-    './img/png/strawberry.png',
-    './img/png/watermelon.png'
+    './img/png/legacy/memory/apple.png',
+    './img/png/legacy/memory/cherry.png',
+    './img/png/legacy/memory/grapes.png',
+    './img/png/legacy/memory/orange.png',
+    './img/png/legacy/memory/pear.png',
+    './img/png/legacy/memory/pineapple.png'
 ];
 
 // Assign each tile an image at random each time
@@ -66,42 +66,38 @@ const timer = () => {
 let attempts = 0;
 let imgStack = [];
 let imgPrev = '';
-let imgId = ''
+let running = false;
 
 // Check for a successful match and add to score if so
 const checkForMatches = (img) => {
-    if(time > 0) {
-        if(attempts < 2) {
-            if(imgPrev === img.src) {
-                attempts++;
-                img.style.opacity = 1;
-                imgStack.pop();
-                textScore.innerHTML = Number(textScore.innerHTML)+1;
-            } else {
-                // Add to stack and display
-                imgStack.push(img);
-                imgPrev = img.src;
-                imgId = img.id;
-                img.style.opacity = 1;
-                attempts++;
-            }
-        } else if(attempts === 2) {
-            // Reset stack and values
-            imgStack.forEach(image => {
-                image.style.opacity = 0;
-            });
-            imgStack = [];
-            attempts = 0;
-            imgPrev = '';
-            imgId = '';
+    if(time > 0 && !running) {
+        attempts++;
+        img.style.opacity = 1;
+        imgStack.push(img);
 
-            // Add to stack and display
-            imgStack.push(img);
-            imgPrev = img.src;
-            imgId = img.id;
-            img.style.opacity = 1;
-            attempts++;
+        // If the match was found
+        // This will only happen when two attempts have been made
+        if(imgPrev === img.src) {
+            imgStack[0].style.opacity = 1;
+            imgStack = [];
+            textScore.innerHTML = Number(textScore.innerHTML)+1;
         }
+        // If two attempts at finding a match have been made
+        // but no matches were found...
+        if(attempts === 2) {
+            running = true;
+            setTimeout(() => {
+                // Reset stack and values
+                imgStack.forEach(image => {
+                    image.style.opacity = 0;
+                });
+                imgStack = [];
+                attempts = 0;
+                imgPrev = '';
+                running = false;
+            }, 400);
+        }
+        imgPrev = img.src;
     }
 };
 
@@ -120,6 +116,7 @@ const isCompleted = () => {
         tiles.push(cell.firstChild.style.opacity);
     }
 
+    // if atleast one tile is not completed
     if(tiles.includes("0")) {
         return false;
     }
