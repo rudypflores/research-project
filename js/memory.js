@@ -58,14 +58,17 @@ const timer = () => {
             time = -1;
 
         // Stop timer if the user has run out of time
-        if(time < 0) 
+        if(time < 0) {
             clearInterval(clock);
+            createButton();
+        }
     }, 1000);
 };
 
 let attempts = 0;
 let imgStack = [];
 let imgPrev = '';
+let id = '';
 let running = false;
 
 // Check for a successful match and add to score if so
@@ -74,10 +77,11 @@ const checkForMatches = (img) => {
         attempts++;
         img.style.opacity = 1;
         imgStack.push(img);
+        id = img.id;
 
         // If the match was found
         // This will only happen when two attempts have been made
-        if(imgPrev === img.src) {
+        if(imgPrev === img.src && id !== img.id) {
             imgStack[0].style.opacity = 1;
             imgStack = [];
             textScore.innerHTML = Number(textScore.innerHTML)+1;
@@ -94,11 +98,20 @@ const checkForMatches = (img) => {
                 imgStack = [];
                 attempts = 0;
                 imgPrev = '';
+                id = '';
                 running = false;
             }, 400);
         }
         imgPrev = img.src;
     }
+};
+
+const createButton = () => {
+    // Create a continue button and insert to DOM
+    let buttonNext = document.createElement('button');
+    buttonNext.innerHTML = 'Continue';
+    buttonNext.onclick = () => location.href = 'index.html';
+    document.body.appendChild(buttonNext);
 };
 
 // Helper method for checking occurences of x in an array
@@ -112,19 +125,14 @@ const countInArray = (arr, x) => {
 const isCompleted = () => {
     let tiles = [];
 
+    // Pull opacity data from each cell for the tiles array
     for(let cell of cells) {
         tiles.push(cell.firstChild.style.opacity);
     }
 
-    // if atleast one tile is not completed
+    // if atleast one tile is not completed or is not visible
     if(tiles.includes("0")) {
         return false;
     }
-
-    // Create a continue button and insert to DOM
-    let buttonNext = document.createElement('button');
-    buttonNext.innerHTML = 'Continue';
-    buttonNext.onclick = () => location.href = 'index.html';
-    document.body.appendChild(buttonNext);
     return true;
 };
