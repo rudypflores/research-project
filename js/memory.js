@@ -77,10 +77,10 @@ const checkForMatches = (img) => {
         attempts++;
         img.style.opacity = 1;
         imgStack.push(img);
-        id = img.id;
 
         // If the match was found
         // This will only happen when two attempts have been made
+        console.log(`Previous Image: ${id}\nCurrent Image: ${img.id}`);
         if(imgPrev === img.src && id !== img.id) {
             imgStack[0].style.opacity = 1;
             imgStack = [];
@@ -102,7 +102,10 @@ const checkForMatches = (img) => {
                 running = false;
             }, 400);
         }
+        id = img.id;
         imgPrev = img.src;
+        console.log(imgStack);
+        console.log(`Attempt(s): ${attempts}`);
     }
 };
 
