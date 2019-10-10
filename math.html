@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/math.css">
+    <title>Music Research Project</title>
+</head>
+<body id="main" onload="start()">
+    
+    <p id="title">Time remaining: <b id="timer">30</b></p>
+
+    <div class="wrapper-row">
+        <p id="sub">Subtask Time: <b id="s-timer">10</b></p>
+        <p>Score: <b id="score">0</b></p>
+    </div>
+
+    <!-- Placeholder where JS will insert the ongoing problem -->
+    <p id="container-problem"><span id="problem"></span> = <span id="input">_____</span></p>
+    <p id="solution"></p>
+
+    <!-- Table representing the calculator for user input -->
+    <div class="table" id="table">
+        <div class="row" id="row1">
+            <div class="cell"><p class="num">1</p></div>
+            <div class="cell"><p class="num">2</p></div>
+            <div class="cell"><p class="num">3</p></div>
+        </div>
+        <div class="row" id="row2">
+            <div class="cell"><p class="num">4</p></div>
+            <div class="cell"><p class="num">5</p></div>
+            <div class="cell"><p class="num">6</p></div>
+        </div>
+        <div class="row" id="row3">
+            <div class="cell"><p class="num">7</p></div>
+            <div class="cell"><p class="num">8</p></div>
+            <div class="cell"><p class="num">9</p></div>
+        </div>
+        <div class="row" id="row4">
+            <div class="cell"><p class="num">0</p></div>
+            <div class="cell"><img src="./img/svg/return.svg"/></div>
+            <div class="cell"><p class="submit">SUBMIT</p></div>
+        </div>
+    </div>
+</body>
+<script src="./js/math.js"></script>
+</html>
