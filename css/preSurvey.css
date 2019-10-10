@@ -5,7 +5,7 @@ body, html {
     padding:0;
     border:0;
     font-family: 'Lato', sans-serif;
-    font-size: calc(13px + 6 * ((100vw - 320px) / 680));
+    font-size: 16px;
     color: #263238;
     background-color: #EEEEEE;
     text-shadow: 0 1px 3px rgba(0,0,0,0.12);
@@ -32,7 +32,7 @@ b {
     margin:0;
     padding: 0;
     border:0;
-    font-size:1em;
+    font-size:1.2em;
     display:inline-block;
 }
 
@@ -54,7 +54,7 @@ input[type=text], input[type=number] {
     border-radius:3px;
     border-color: rgba(0, 0, 0, .15);
     background-color: #ffffff;
-    font-size: 1em;
+    font-size: 1.2em;
     font-family: 'Lato', sans-serif;
     font-weight: 350;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
@@ -78,7 +78,7 @@ input[type=radio] {
 
 input[type=submit] {
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
-    font-size: 1em;
+    font-size: 1.2em;
     background-color: #263238;
     border:none;
     border-radius: 3px;
@@ -103,7 +103,7 @@ select, option {
     background-color: #ffffff;
     font-weight: 350;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1.2em;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
     display:inline-block;
 }
@@ -167,7 +167,8 @@ fieldset {
 
 .table {
     display: flex;
-    margin:25px 50px;
+    max-width: 1000px;
+    margin:0 auto;
     justify-content: center;
     flex-flow: column nowrap;
     border-radius:3px;
@@ -211,7 +212,7 @@ button {
     text-decoration: none;
     background: #455A64;
     color: #ffffff;
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1;
     cursor: pointer;
     text-align: center;

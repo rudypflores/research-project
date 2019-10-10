@@ -113,7 +113,7 @@ const createButton = () => {
     // Create a continue button and insert to DOM
     let buttonNext = document.createElement('button');
     buttonNext.innerHTML = 'Continue';
-    buttonNext.onclick = () => location.href = 'index.html';
+    buttonNext.onclick = () => location.href = 'mathInstructions.html';
     document.body.appendChild(buttonNext);
 };
 
