@@ -50,6 +50,7 @@ html {
 #solution {
     font-size: 1.5em;
     font-weight: 300;
+    margin-top:15px;
 }
 
 p {
@@ -72,13 +73,13 @@ p {
 
 .cell {
     cursor: pointer;
-    color:#EEEEEE;
+    color:#263238;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 12vh;
     height: 12vh;
-    background-color: #263238;
+    background-color: #dddddd;
     text-align: center;
     margin: 15px;
     border-radius: 3px;

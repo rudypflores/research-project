@@ -80,8 +80,11 @@ const checkForMatches = (img) => {
 
         // If the match was found
         // This will only happen when two attempts have been made
-        console.log(`Previous Image: ${id}\nCurrent Image: ${img.id}`);
         if(imgPrev === img.src && id !== img.id) {
+            imgStack.forEach(img => {
+                img.parentNode.style.opacity = 0;
+                img.parentNode.style.cursor = 'auto';
+            });
             imgStack[0].style.opacity = 1;
             imgStack = [];
             textScore.innerHTML = Number(textScore.innerHTML)+1;
@@ -104,8 +107,6 @@ const checkForMatches = (img) => {
         }
         id = img.id;
         imgPrev = img.src;
-        console.log(imgStack);
-        console.log(`Attempt(s): ${attempts}`);
     }
 };
 
