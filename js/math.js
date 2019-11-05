@@ -45,6 +45,41 @@ const start = () => {
     let key = generateKey();
     let userAnswer = '';
 
+    //allow typing with keypad, enter and backspace
+    let body = document.getElementById('main');
+    body.addEventListener('keydown', (event) => {
+        const isNumber = isFinite(event.key);
+        
+        // Add to input box
+        if(isNumber) {
+            input.innerHTML += event.key;
+            userAnswer += event.key;
+        }
+        // Remove from input box
+        else if(event.key === 'Backspace') {
+            userAnswer = input.innerHTML.substring(0,input.innerHTML.length-1);
+            input.innerHTML = input.innerHTML.substring(0,input.innerHTML.length-1);
+        }
+        // Submit input to solution
+        else if(event.key === 'Enter') {
+            if(userAnswer === solutions[key]) {
+                currentScore++;
+                score.innerHTML = currentScore;
+                subTime = 10;
+                key = generateKey();
+                problem.innerHTML = problems[key];
+                if(!key) {
+                    let parent = problem.parentNode;
+                    while(parent.firstChild) {
+                        parent.removeChild(parent.firstChild);
+                    }
+                }
+            }
+            userAnswer = '';
+            input.innerHTML = '';
+        }
+    });
+
     //handle case where no problems are found
     if(!key) {
         problem.parentNode.removeChild(problem);
@@ -90,6 +125,7 @@ const start = () => {
     //generate a random problem and display to user
     problem.innerHTML = problems[key];
 
+    /* GAME TIMER */
     //start countdown for sub and main timer
     const clockOuter = setInterval(() => {
         //update main timer every second
@@ -98,6 +134,11 @@ const start = () => {
 
         //if the time is up...
         if(time < 0) {
+            let parent = problem.parentNode;
+            while(parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+
             subTime = 0;
             clearInterval(clockOuter);  
             goToNext();
@@ -115,7 +156,10 @@ const start = () => {
             //generate new key
             key = generateKey();
             if(!key) {
-                problem.parentNode.removeChild(problem);
+                let parent = problem.parentNode;
+                while(parent.firstChild) {
+                    parent.removeChild(parent.firstChild);
+                }
             }
 
             //add new problem from new key
@@ -134,7 +178,6 @@ const start = () => {
 // Generate a randomized key for a question
 // the user hasnt seen yet
 const generateKey = () => {
-
     let key;
     let i = 0;
 
