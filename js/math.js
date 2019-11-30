@@ -7,194 +7,147 @@ const input = document.getElementById('input');
 const solution = document.getElementById('solution');
 const cells = document.getElementsByClassName('cell');
 
-// a map of problems the user can get
-let problems = {
-    0: '60 + 24',
-    1: '5 x 5',
-    2: '20 - 10',
-    3: '25 + 43',
-    4: '50 / 2',
-    5: '10 x 3',
-}
-// a map of solutions the user can get
-let solutions = {
-    0: '84',
-    1: '25',
-    2: '10',
-    3: '68',
-    4: '25',
-    5: '30',
-}
-// a map that will track the problems completed by the user
-let completed = {
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-}
-
 //function that runs at the initial state of the website
 const start = () => {
-
     //initialize timer and sub timer
     let time = 30;
     let subTime = 10;
-    let currentScore = 0;
-    let key = generateKey();
     let userAnswer = '';
+    let [a,p,b] = getProblem(); //structure works like [a, operator, b]
+    let answer = getSolution(a,p,b);
 
-    //allow typing with keypad, enter and backspace
-    let body = document.getElementById('main');
-    body.addEventListener('keydown', (event) => {
-        const isNumber = isFinite(event.key);
-        
-        // Add to input box
-        if(isNumber) {
-            input.innerHTML += event.key;
-            userAnswer += event.key;
-        }
-        // Remove from input box
-        else if(event.key === 'Backspace') {
-            userAnswer = input.innerHTML.substring(0,input.innerHTML.length-1);
-            input.innerHTML = input.innerHTML.substring(0,input.innerHTML.length-1);
-        }
-        // Submit input to solution
-        else if(event.key === 'Enter') {
-            if(userAnswer === solutions[key]) {
-                currentScore++;
-                score.innerHTML = currentScore;
-                subTime = 10;
-                key = generateKey();
-                problem.innerHTML = problems[key];
-                if(!key) {
-                    let parent = problem.parentNode;
-                    while(parent.firstChild) {
-                        parent.removeChild(parent.firstChild);
-                    }
-                }
-            }
-            userAnswer = '';
-            input.innerHTML = '';
-        }
-    });
-
-    //handle case where no problems are found
-    if(!key) {
-        problem.parentNode.removeChild(problem);
+    //map representing operators
+    let map = {
+        0:'+',
+        1:'-',
+        2:'*',
+        3:'/'
     }
 
-    //access submit buttons form the cells HTML collection
-    let submit = cells[cells.length-1];
-    
-    //when submit is clicked increase score by one
-    //if the answer is right
-    submit.addEventListener('click', () => {
-        if(userAnswer === solutions[key]) {
-            currentScore++;
-            score.innerHTML = currentScore;
-            subTime = 10;
-            key = generateKey();
-            problem.innerHTML = problems[key];
-            if(!key) {
-                let parent = problem.parentNode;
-                while(parent.firstChild) {
-                    parent.removeChild(parent.firstChild);
-                }
+    //display problem on start
+    problem.innerHTML = `${a} ${map[p]} ${b}`;
+
+    //receive the user's input through their keyboard
+    window.addEventListener('keydown', (event) => {
+        //check for number press
+        if(isFinite(event.key) || event.key == '-') {
+            input.innerHTML += `${event.key}`;
+            userAnswer += `${event.key}`;
+        }
+        //check if the input the user submitted is correct
+        if(event.key === 'Enter') {
+            if(userAnswer === answer.toString()) {
+                //increase score
+                score.innerHTML = `${parseInt(score.innerHTML,10)+1}`;
+                //generate new problem and answer
+                [a,p,b] = getProblem();
+                answer = getSolution(a,p,b);
+                //project new problem and solution to user
+                problem.innerHTML = `${a} ${map[p]} ${b}`;
+                //clear input from user
+                input.innerHTML = '';
+                userAnswer = '';
             }
         }
-        userAnswer = '';
-        input.innerHTML = '';
+        //allow user to delete input when backspace is pressed
+        if(event.key === 'Backspace') {
+            input.innerHTML = input.innerHTML.slice(0, input.innerHTML.length-1);
+            userAnswer = userAnswer.slice(0, userAnswer.length-1);
+        }
     });
 
-    //add events to each number in the number pad
-    for(let i = 0; i < cells.length-2; i++) {
-        cells[i].addEventListener('click', () => {
-            input.innerHTML += `${cells[i].firstChild.innerHTML}`;
-            userAnswer += `${cells[i].firstChild.innerHTML}`;
+    //Allow for button input through mouse
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].addEventListener('mouseup', () => {
+            if(i < cells.length-2)
+                input.innerHTML += `${cells[i].textContent}`;
+            else if(i === 10) {
+                input.innerHTML = input.innerHTML.slice(0, input.innerHTML.length-1);
+                userAnswer = userAnswer.slice(0, userAnswer.length-1);
+            } else {
+                //increase score
+                score.innerHTML = `${parseInt(score.innerHTML,10)+1}`;
+                //generate new problem and answer
+                [a,p,b] = getProblem();
+                answer = getSolution(a,p,b);
+                //project new problem and solution to user
+                problem.innerHTML = `${a} ${map[p]} ${b}`;
+                //clear input from user
+                input.innerHTML = '';
+                userAnswer = '';
+            }
         });
     }
 
-    //add event to delete button
-    cells[cells.length - 2].addEventListener('click', () => {
-        userAnswer = input.innerHTML.substring(0,input.innerHTML.length-1);
-        input.innerHTML = input.innerHTML.substring(0,input.innerHTML.length-1);
-    });
-
-    //generate a random problem and display to user
-    problem.innerHTML = problems[key];
-
-    /* GAME TIMER */
-    //start countdown for sub and main timer
-    const clockOuter = setInterval(() => {
-        //update main timer every second
-        timer.innerHTML = time;
+    //timer for task including the subtimer
+    const clock = setInterval(() => {
+        //decrease time by one second
         time--;
-
-        //if the time is up...
-        if(time < 0) {
-            let parent = problem.parentNode;
-            while(parent.firstChild) {
-                parent.removeChild(parent.firstChild);
-            }
-
-            subTime = 0;
-            clearInterval(clockOuter);  
-            goToNext();
-        }
-
-        //update sub time every second
-        subTimer.innerHTML = subTime;
         subTime--;
 
-        //reset sub time to 10 seconds when it runs out of time
-        if(subTime < 0 && time > 0) {
-            //display solution
-            solution.innerHTML = `Solution of previous question: ${solutions[key]}`;
+        //display current subtime and timer for user
+        timer.innerHTML = time;
+        subTimer.innerHTML = subTime;
 
-            //generate new key
-            key = generateKey();
-            if(!key) {
-                let parent = problem.parentNode;
-                while(parent.firstChild) {
-                    parent.removeChild(parent.firstChild);
-                }
-            }
-
-            //add new problem from new key
-            problem.innerHTML = problems[key];
-
-            subTime = 9;
-        }  
-        
-        if(!key) {
-            clearInterval(clockOuter);
+        //when time is up
+        if(time === 0) {
+            clearInterval(clock);
+            problem.parentNode.remove();
+            solution.remove();
+            document.getElementById('table').remove();
             goToNext();
         }
-    }, 1000); 
+        //when subtimer reaches 0
+        if(subTime === 0 && time !== 0) {
+            //reset subtimer
+            subTime = 10;
+            //display to user the solution to previous problem
+            solution.innerHTML = `Solution of previous problem: ${a}${map[p]}${b} = ${answer}`;
+            //generate new problem and answer
+            [a,p,b] = getProblem();
+            answer = getSolution(a,p,b);
+            //project new problem and solution to user
+            problem.innerHTML = `${a} ${map[p]} ${b}`;
+            //clear input from user
+            input.innerHTML = '';
+            userAnswer = '';
+        }
+    }, 1000);
 }
 
-// Generate a randomized key for a question
-// the user hasnt seen yet
-const generateKey = () => {
-    let key;
-    let i = 0;
+//generates two random numbers 'a' and 'b' as well as a key from 0-3 that's random
+const getProblem = () => {
+    let a = Math.floor(Math.random()*16+1);
+    let operator = Math.floor(Math.random()*4);
+    let b = Math.floor(Math.random()*16+1);
+    return [a, operator, b];
+};
 
-    while(!key && i < 10) {
-        let v = Math.floor(Math.random()*6);
-        i++;
-        if(!completed[v]) {
-            key = v;
-            completed[v] = true; 
-        }
+//works with the destructured array to generate the result to a random operation
+const getSolution = (a, problem, b) => {
+    switch(problem) {
+        case 0: 
+            return a + b;
+        case 1:
+            return a - b;
+        case 2: 
+            return a * b;
+        case 3:
+            return Math.floor(a / b);
+        default:
+            return;
     }
-    return key;
 };
 
 //create button to go to next section
 const goToNext = () => {
+
+    let link = document.createElement('a');
+    link.href = './readingInstructions.html';
+
     let button = document.createElement('button');
     button.innerHTML = 'Continue';
-    document.getElementById('main').appendChild(button);
+
+    link.append(button);
+    document.getElementById('main').append(link);
 };
