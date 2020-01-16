@@ -20,8 +20,7 @@ const start = () => {
     let map = {
         0:'+',
         1:'-',
-        2:'*',
-        3:'/'
+        2:'x',
     }
 
     //display problem on start
@@ -118,7 +117,7 @@ const start = () => {
 //generates two random numbers 'a' and 'b' as well as a key from 0-3 that's random
 const getProblem = () => {
     let a = Math.floor(Math.random()*16+1);
-    let operator = Math.floor(Math.random()*4);
+    let operator = Math.floor(Math.random()*3);
     let b = Math.floor(Math.random()*16+1);
     return [a, operator, b];
 };
@@ -141,7 +140,6 @@ const getSolution = (a, problem, b) => {
 
 //create button to go to next section
 const goToNext = () => {
-
     let link = document.createElement('a');
     link.href = './readingInstructions.html';
 
