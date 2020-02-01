@@ -26,6 +26,7 @@ const timer = document.createElement('p');
 const hr = document.createElement('hr');
 const passage = document.createElement('p');
 const btnNext = document.createElement('button');
+const link = document.createElement('a');
 
 // Passage Title
 title.innerHTML = passageTitle;
@@ -43,7 +44,8 @@ const clock = setInterval(() => {
         timer.innerHTML = `00:${time}`;
     time--;
     if(time < 0) {
-        body.append(btnNext);
+        passage.style.display = 'none';
+        body.append(link);
         clearInterval(clock);
     }
 }, 1000);
@@ -57,6 +59,8 @@ passage.id = 'passage';
 
 // Go to next button
 btnNext.innerHTML = 'Next';
+link.href = './readingQuestions.html';
+link.append(btnNext);
 
 body.append(title);
 body.append(timer);
