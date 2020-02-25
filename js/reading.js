@@ -25,11 +25,16 @@ const title = document.createElement('h1');
 const timer = document.createElement('p');
 const hr = document.createElement('hr');
 const passage = document.createElement('p');
+const link = document.createElement('a');
 const btnNext = document.createElement('button');
 
 // Passage Title
 title.innerHTML = passageTitle;
 title.id = 'title';
+
+//Go to next button
+link.href = '../colorStroopInstructions.html';
+link.append(btnNext);
 
 // Timer
 let time = 30;
@@ -43,7 +48,7 @@ const clock = setInterval(() => {
         timer.innerHTML = `00:${time}`;
     time--;
     if(time < 0) {
-        body.append(btnNext);
+        body.append(link);
         clearInterval(clock);
     }
 }, 1000);
