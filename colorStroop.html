@@ -4,8 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Research Project</title>
+    <link rel="stylesheet" href="./css/colorStroop.css">
 </head>
-<body>
-    
+<body id="main">
+    <p id="title">Time Remaining: <span id="timer"></span></p>
+    <div class="wrapper" style="margin-bottom:50px; font-weight: 300;">
+        <p style="margin-right:50px">SubTask Time: <span id="sub-timer"></span></p>
+        <p>Score: <span id="score"></span></p>
+    </div>  
+
+    <!-- Current color to pick -->
+    <p id="color-name" style="font-weight: bolder;"></p>
+    <p style="font-weight: 300;">Match the Color NOT the word</p>
+
+    <!-- Table for color options -->
+    <div class="table">
+        <div class="row">
+            <div class="cell">R</div>
+            <div class="cell">G</div>
+        </div>
+        <div class="row">
+            <div class="cell">B</div>
+            <div class="cell">Y</div>
+        </div>
+    </div>
 </body>
+<script src="./js/colorStroop.js"></script>
 </html>
