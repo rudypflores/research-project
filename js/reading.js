@@ -27,15 +27,10 @@ const hr = document.createElement('hr');
 const passage = document.createElement('p');
 const link = document.createElement('a');
 const btnNext = document.createElement('button');
-const link = document.createElement('a');
 
 // Passage Title
 title.innerHTML = passageTitle;
 title.id = 'title';
-
-//Go to next button
-link.href = '../colorStroopInstructions.html';
-link.append(btnNext);
 
 // Timer
 let time = 30;
@@ -71,5 +66,3 @@ body.append(title);
 body.append(timer);
 body.append(hr);
 body.append(passage);
-
-console.log('here')

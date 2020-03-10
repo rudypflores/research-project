@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap');
 
-body, 
-html {
-    margin: 0;
-    padding: 0;
-    border: 0;
+body, html {
+    margin:0;
+    padding:0;
+    border:0;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
-    color: #FAFAFA;
-    background-color: rgb(177, 177, 177);
+    color: #263238;
+    background-color: #EEEEEE;
     text-shadow: 0 1px 3px rgba(0,0,0,0.12);
     text-align: center;
 }
@@ -17,89 +16,72 @@ html {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
-    align-content: center;
     align-items: center;
-    height: 100vh;
+    height:100vh;
+    width: 80%;
+    margin:0 auto;
 }
 
 #title {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: bolder;
-    margin: 0;
+    text-align: center;
+    margin: 0px 50px;
 }
 
 #sub {
-    margin-right: 50px;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-align: center;
+    margin: 0px 50px;
 }
 
 p {
-    margin: 0;
-    font-size: 1.5em;
+    font-size: 1.8em;
+    font-weight: 300;
+    margin:0;
+    text-align: center;
+    margin:0px 50px;
+    max-width:800px;
+}
+
+#current-object{
+    height: 25%;
+    width: 25%;
+    margin:25px 0px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+}
+
+#current-object:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
 }
 
 .wrapper {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: row wrap;
-}
-
-.table {
-    display: flex;
-    margin: 25px 50px;
-    justify-content: center;
-    flex-flow: column nowrap;
-}
-
-.row {
-    display: flex;
     flex-flow: row nowrap;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 700px;
 }
 
-.cell {
+.wrapper img {
     cursor: pointer;
-    color:#263238;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 12vh;
-    height: 12vh;
-    background-color: #dddddd;
-    text-align: center;
-    margin: 15px;
-    border-radius: 3px;
-    font-size: 3em;
+    width:350;
+    height: auto;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
-    
-    /* prevent highlight when clicked */
-    -webkit-user-select: none;  /* Chrome all / Safari all */
-    -moz-user-select: none;     /* Firefox all */
-    -ms-user-select: none;      /* IE 10+ */
-}
-
-.cell:active {
-    box-shadow: none;
-    transform: translateY(3px);
-}
-
-img {
-    width: 64px;
-    height: 64px;
-    padding: 1rem;
 }
 
 button {
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
-    margin-top: 25px;
+    margin: 50px 0px;
     text-decoration: none;
     background: #455A64;
     color: #ffffff;
-    font-size: 1em;
+    font-size: 1.5em;
     line-height: 1;
     cursor: pointer;
     text-align: center;

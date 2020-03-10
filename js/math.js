@@ -46,6 +46,7 @@ const start = () => {
                 //clear input from user
                 input.innerHTML = '';
                 userAnswer = '';
+                subTime = 10;
             }
         }
         //allow user to delete input when backspace is pressed
@@ -74,6 +75,7 @@ const start = () => {
                 //clear input from user
                 input.innerHTML = '';
                 userAnswer = '';
+                subTime = 10;
             }
         });
     }

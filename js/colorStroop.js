@@ -56,6 +56,7 @@ const clock = setInterval(() => {
         let link = document.createElement('a');
         let btnNext = document.createElement('button');
         
+        link.href = './spatialInstructions.html';
         btnNext.innerHTML = 'Next';
 
         link.append(btnNext);
@@ -74,6 +75,7 @@ for(cell of cells) {
         //if the user clicks the right answer...
         if(event.target.innerHTML === colorName.style.color[0].toUpperCase()) {
             score.innerHTML = Number.parseInt(score.innerHTML, 10) + 1;
+            subTime = 10;
             generateColor();
         }
     });
