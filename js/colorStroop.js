@@ -49,35 +49,61 @@ const clock = setInterval(() => {
         generateColor();
     }
     if(time < 0) {
-        while(body.hasChildNodes()) {
-            body.removeChild(body.firstChild);
-        }
-
-        let link = document.createElement('a');
-        let btnNext = document.createElement('button');
-        
-        link.href = './spatialInstructions.html';
-        btnNext.innerHTML = 'Next';
-
-        link.append(btnNext);
-        body.append(link);
-
+        window.location.href = '../spatialInstructions.html';
         clearInterval(clock);
     }
 }, 1000);
 
 //Start the score at 0
 score.innerHTML = '0';
+const correctIcon = document.createElement('img');
+const wrongIcon = document.createElement('img');
+
+correctIcon.src = '../img/png/legacy/colorstroop/correct.png';
+correctIcon.style.position = 'absolute';
+correctIcon.style.zIndex = '1';
+wrongIcon.src = '../img/png/legacy/colorstroop/incorrect.png';
+wrongIcon.style.position = 'absolute';
+wrongIcon.style.zIndex = '1';
+
+const toggleClickEvent = (mode) => {
+    for(cell of cells)
+        cell.style.pointerEvents = mode === 0 ? 'none' : 'auto'; 
+}
 
 //add click event to cells in table
 for(cell of cells) {
     cell.addEventListener('click', (event) => {
+        const parent = event.target.parentNode;
         //if the user clicks the right answer...
         if(event.target.innerHTML === colorName.style.color[0].toUpperCase()) {
+            parent.append(correctIcon);
             score.innerHTML = Number.parseInt(score.innerHTML, 10) + 1;
             subTime = 10;
-            generateColor();
+            toggleClickEvent(0);
+
+            setTimeout(() => {
+                parent.removeChild(correctIcon);
+                generateColor();
+                toggleClickEvent(1);
+            }, 1000);
+        } 
+        else { //if the wrong answer is selected...
+            //find correct answer
+            for(cell of cells) {
+                if(cell.firstChild.innerHTML === colorName.style.color[0].toUpperCase()) {
+                    const correctAnswer = cell; //store cell because the function is not async
+                    correctAnswer.append(correctIcon);
+                    parent.append(wrongIcon);
+                    toggleClickEvent(0);
+                    setTimeout(() => { //when waiting a second the reference of cell becomes always the last node!
+                        parent.removeChild(wrongIcon);
+                        correctAnswer.removeChild(correctAnswer.lastChild);
+                        generateColor();
+                        toggleClickEvent(1);
+                    }, 1000);
+                }
+            }
         }
     });
 }
-

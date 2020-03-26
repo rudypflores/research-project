@@ -93,10 +93,7 @@ const start = () => {
         //when time is up
         if(time === 0) {
             clearInterval(clock);
-            problem.parentNode.remove();
-            solution.remove();
-            document.getElementById('table').remove();
-            goToNext();
+            window.location.href = '../readingInstructions.html'
         }
         //when subtimer reaches 0
         if(subTime === 0 && time !== 0) {
@@ -138,16 +135,4 @@ const getSolution = (a, problem, b) => {
         default:
             return;
     }
-};
-
-//create button to go to next section
-const goToNext = () => {
-    let link = document.createElement('a');
-    link.href = './readingInstructions.html';
-
-    let button = document.createElement('button');
-    button.innerHTML = 'Continue';
-
-    link.append(button);
-    document.getElementById('main').append(link);
 };

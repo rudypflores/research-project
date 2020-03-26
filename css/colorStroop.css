@@ -26,15 +26,24 @@ html {
     font-size: 3em;
     font-weight: bolder;
     margin: 0;
+    /* prevent highlight when clicked */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
 }
 
 #sub {
     margin-right: 50px;
 }
 
-p {
+.wrapper p, #color-name, #reminder {
     margin: 0;
     font-size: 1.5em;
+
+    /* prevent highlight when clicked */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
 }
 
 .wrapper {

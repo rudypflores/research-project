@@ -53,14 +53,10 @@ const timer = () => {
         textTime.innerHTML = time;
         time--;
 
-        // Stop timer if user has completed game
-        if(isCompleted())
-            time = -1;
-
         // Stop timer if the user has run out of time
-        if(time < 0) {
+        if(time < 0 || isCompleted()) {
             clearInterval(clock);
-            createButton();
+            window.location.href = '../mathInstructions.html';
         }
     }, 1000);
 };
@@ -108,14 +104,6 @@ const checkForMatches = (img) => {
         id = img.id;
         imgPrev = img.src;
     }
-};
-
-const createButton = () => {
-    // Create a continue button and insert to DOM
-    let buttonNext = document.createElement('button');
-    buttonNext.innerHTML = 'Continue';
-    buttonNext.onclick = () => location.href = 'mathInstructions.html';
-    document.body.appendChild(buttonNext);
 };
 
 // Helper method for checking occurences of x in an array
