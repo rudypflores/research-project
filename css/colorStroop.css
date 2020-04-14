@@ -99,6 +99,12 @@ img {
     padding: 1rem;
 }
 
+#result {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;
+}
+
 button {
     display: inline-block;
     border: none;

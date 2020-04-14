@@ -143,6 +143,7 @@ const nextProblem = (shapeClicked) => {
     }
     feedback.append(result);
 
+    //display result and generate a new problem with choices
     setTimeout(() => {
         feedback.removeChild(feedback.firstChild)
     
@@ -170,8 +171,6 @@ const nextProblem = (shapeClicked) => {
 
 left.addEventListener('mouseup', () => nextProblem(i+x));
 right.addEventListener('mouseup', () => nextProblem(i+y));
-
-
 
 //tick clock for every second
 const clock = setInterval(() => {
