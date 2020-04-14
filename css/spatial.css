@@ -45,16 +45,29 @@ p {
     max-width:800px;
 }
 
-#current-object{
-    height: 25%;
-    width: 25%;
-    margin:25px 0px;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#current-object:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20);
+#feedback {
+    margin:15px;
+}
+
+#current{
+    height: auto;
+    width: 20vw;
+    max-width: 256px;
+    margin:25px 0px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 }
 
 .wrapper {
@@ -68,7 +81,9 @@ p {
 
 .wrapper img {
     cursor: pointer;
-    width:350;
+    width:20vw;
+    margin:25px;
+    max-width: 256px;
     height: auto;
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
 }
